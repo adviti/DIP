@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Image>
+  <FileName>1420.jpg</FileName>
+  <Date>29/05/09</Date>
+  <Type>Scan</Type>
+  <Organization>Tela</Organization>
+  <Author>Gelmetti Anne-Marie</Author>
+  <IndividualPlantId>106</IndividualPlantId>
+  <Taxon>
+    <Clade3>Angiosperms</Clade3>
+    <Clade2>Eudicots</Clade2>
+    <Clade1>Rosids</Clade1>
+    <Regnum>Plantae</Regnum>
+    <Order>Fagales</Order>
+    <Family>Fagaceae</Family>
+    <Species>sativa</Species>
+    <Genus>Castanea</Genus>
+  </Taxon>
+  <VernacularNames>Sweet Chestnut</VernacularNames>
+  <Locality>France</Locality>
+  <Content>Leaf</Content>
+  <GPSLocality>
+    <Longitude>2.21375</Longitude>
+    <Latitude>46.22763889</Latitude>
+    <Altitude>0.0</Altitude>
+  </GPSLocality>
+</Image>
+

@@ -1,0 +1,30 @@
+clear all
+close all
+clc
+
+I = imread('../ornus/1505.jpg');
+I = rgb2gray(I);
+figure;
+imshow(I);
+axis equal
+
+[C, S] = wavedec2(I, 3, 'db1');
+
+cA = appcoef2(C, S, 'db1', 3);
+cH = detcoef2('h', C, S, 3);
+cV = detcoef2('v', C, S, 3);
+cD = detcoef2('d', C, S, 3);
+
+figure
+subplot(2, 2, 1)
+imshow(uint8(wcodemat(cA,256)))
+axis equal
+subplot(2, 2, 2)
+imshow(uint8(wcodemat(cH,256)))
+axis equal
+subplot(2, 2, 3)
+imshow(uint8(wcodemat(cV,256)))
+axis equal
+subplot(2, 2, 4)
+imshow(uint8(wcodemat(cD,256)))
+axis equal

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Image>
+  <FileName>1077.jpg</FileName>
+  <Date>14/08/10 14:11</Date>
+  <Type>pseudoscan</Type>
+  <Organization>Inra</Organization>
+  <Author>Bonnet Pierre</Author>
+  <IndividualPlantId>268</IndividualPlantId>
+  <Taxon>
+    <Clade3>Angiosperms</Clade3>
+    <Clade2>Eudicots</Clade2>
+    <Clade1>Rosids</Clade1>
+    <Regnum>Plantae</Regnum>
+    <Order>Sapindales</Order>
+    <Family>Sapindaceae</Family>
+    <Species>opalus</Species>
+    <Genus>Acer</Genus>
+  </Taxon>
+  <VernacularNames>Italian Maple</VernacularNames>
+  <Locality>France - Jura</Locality>
+  <Content>Leaf</Content>
+  <GPSLocality>
+    <Longitude>5.672916667</Longitude>
+    <Latitude>46.762475</Latitude>
+    <Altitude>0.0</Altitude>
+  </GPSLocality>
+</Image>
+

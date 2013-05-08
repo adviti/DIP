@@ -1,0 +1,98 @@
+clear all
+close all
+clc
+
+list = {    'coggygria';
+            'oleander';
+            'opalus';
+            'sativa';
+            'serotina';
+            'spinosa';
+            'tobira'};
+for k = 1:7
+    class = list{k};
+    directory = ['..\data\train_data\', class, '\'];
+    dirList = dir([directory, '*.jpg']);
+    NFiles = length(dirList);
+    disp(NFiles)
+
+    cMatrix = cell(7, NFiles + 1);
+    cMatrix{1, 1} = 'File';
+    cMatrix{2, 1} = 'Contrast';
+    cMatrix{3, 1} = 'Correlation';
+    cMatrix{4, 1} = 'Energy';
+    cMatrix{5, 1} = 'Homogeneity';
+    cMatrix{6, 1} = 'Entropy';
+    cMatrix{7, 1} = 'Roundness';
+    cMatrix{8, 1} = 'AspectRatio';
+
+%     mkdir(['..\Texture\', class]);
+
+    for i = 1:NFiles
+        clc
+        disp('Percent Complete')
+        disp(i/NFiles*100);
+
+        fName = dirList(i).name(1:end-4);
+
+        I = imread([directory, dirList(i).name]);
+        I = rgb2gray(I);
+
+        BW = ~im2bw(I, graythresh(I));
+        Area = bwarea(BW);
+        Perimeter = sum(sum(bwperim(BW)));
+        stats = regionprops(BW, 'MajorAxisLength', 'MinorAxisLength');
+        MajorAxis = 0;
+        MinorAxis = 0;
+        for j = 1:1:length(stats)
+            if MajorAxis < stats(j).MajorAxisLength
+                MajorAxis = stats(j).MajorAxisLength;
+                MinorAxis = stats(j).MinorAxisLength;
+            end
+        end
+
+        Tex = get_texture(I);
+        %imwrite(Tex, ['..\Texture\', class, '\', fName, '.jpg'], 'jpg');
+
+        glcm = graycomatrix(I);
+        stats = graycoprops(glcm, 'all');
+        stats.Entropy = entropy(Tex);
+
+        cMatrix{1, i + 1} = fName;
+        cMatrix{2, i + 1} = stats.Contrast;
+        cMatrix{3, i + 1} = stats.Correlation;
+        cMatrix{4, i + 1} = stats.Energy;
+        cMatrix{5, i + 1} = stats.Homogeneity;
+        cMatrix{6, i + 1} = stats.Entropy;
+        cMatrix{7, i + 1} = 4*pi*Area/Perimeter^2;
+        cMatrix{8, i + 1} = MinorAxis/MajorAxis;
+    end
+
+    Con = zeros(NFiles, 1);
+    Cor = zeros(NFiles, 1);
+    Ene = zeros(NFiles, 1);
+    Hom = zeros(NFiles, 1);
+    Ent = zeros(NFiles, 1);
+    Rou = zeros(NFiles, 1);
+    Asp = zeros(NFiles, 1);
+    for i = 1:NFiles
+        Con(i) = cMatrix{2, i + 1};
+        Cor(i) = cMatrix{3, i + 1};
+        Ene(i) = cMatrix{4, i + 1};
+        Hom(i) = cMatrix{5, i + 1};
+        Ent(i) = cMatrix{6, i + 1};
+        Rou(i) = cMatrix{7, i + 1};
+        Asp(i) = cMatrix{8, i + 1};
+    end
+    xMatrix = { '',                 'Min',    'Max'     'Mean',    'Std',   'Median',     'Mode',    'Range';
+                'Contrast',         min(Con), max(Con), mean(Con), std(Con), median(Con), mode(Con), range(Con);
+                'Correlation',      min(Cor), max(Cor), mean(Cor), std(Cor), median(Cor), mode(Cor), range(Cor);
+                'Energy',           min(Ene), max(Ene), mean(Ene), std(Ene), median(Ene), mode(Ene), range(Ene);
+                'Homogeneity',      min(Hom), max(Hom), mean(Hom), std(Hom), median(Hom), mode(Hom), range(Hom);
+                'Entropy',          min(Ent), max(Ent), mean(Ent), std(Ent), median(Ent), mode(Ent), range(Ent);
+                'Roundness',        min(Rou), max(Rou), mean(Rou), std(Rou), median(Rou), mode(Rou), range(Rou);
+                'AspectRatio',      min(Asp), max(Asp), mean(Asp), std(Asp), median(Asp), mode(Asp), range(Asp)};
+
+    xlswrite(['../XLS/', class], cMatrix)
+    xlswrite(['../XLS/', class], xMatrix, 'A11:H18' )
+end

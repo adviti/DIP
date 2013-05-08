@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Image>
+  <FileName>791.jpg</FileName>
+  <Date>1989/07</Date>
+  <Type>photograph</Type>
+  <Organization>Inra</Organization>
+  <Author>Barthelemy Daniel</Author>
+  <IndividualPlantId>393</IndividualPlantId>
+  <Taxon>
+    <Clade3>Angiosperms</Clade3>
+    <Clade2>Eudicots</Clade2>
+    <Clade1>Rosids</Clade1>
+    <Regnum>Plantae</Regnum>
+    <Order>Fagales</Order>
+    <Family>Fagaceae</Family>
+    <Species>sativa</Species>
+    <Genus>Castanea</Genus>
+  </Taxon>
+  <VernacularNames>Sweet Chestnut</VernacularNames>
+  <Locality>Loire Atlantique - Nantes</Locality>
+  <Content>Foliage</Content>
+  <GPSLocality>
+    <Longitude>-1.556744444</Longitude>
+    <Latitude>47.21684167</Latitude>
+    <Altitude>0.0</Altitude>
+  </GPSLocality>
+</Image>
+

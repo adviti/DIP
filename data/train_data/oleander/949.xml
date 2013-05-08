@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Image>
+  <FileName>949.jpg</FileName>
+  <Date>07/07/10</Date>
+  <Type>Scan</Type>
+  <Organization>Inra</Organization>
+  <Author>Bonnet Pierre</Author>
+  <IndividualPlantId>185</IndividualPlantId>
+  <Taxon>
+    <Clade3>Angiosperms</Clade3>
+    <Clade2>Eudicots</Clade2>
+    <Clade1>Asterids</Clade1>
+    <Regnum>Plantae</Regnum>
+    <Order>Gentianales</Order>
+    <Family>Apocynaceae</Family>
+    <Species>oleander</Species>
+    <Genus>Nerium</Genus>
+  </Taxon>
+  <VernacularNames>Nerium Oleander</VernacularNames>
+  <Locality>Herault - Palavas</Locality>
+  <Content>Leaf</Content>
+  <GPSLocality>
+    <Longitude>3.931269444</Longitude>
+    <Latitude>43.52871944</Latitude>
+    <Altitude>0.0</Altitude>
+  </GPSLocality>
+</Image>
+

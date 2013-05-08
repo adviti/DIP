@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Image>
+  <FileName>2091.jpg</FileName>
+  <Date>07/07/10</Date>
+  <Type>Scan</Type>
+  <Organization>Inra</Organization>
+  <Author>Bonnet Pierre</Author>
+  <IndividualPlantId>204</IndividualPlantId>
+  <Taxon>
+    <Clade3>Angiosperms</Clade3>
+    <Clade2>Eudicots</Clade2>
+    <Clade1>Asterids</Clade1>
+    <Regnum>Plantae</Regnum>
+    <Order>Apiales</Order>
+    <Family>Pittosporaceae</Family>
+    <Species>tobira</Species>
+    <Genus>Pittosporum</Genus>
+  </Taxon>
+  <VernacularNames>Japanese Mock-orange</VernacularNames>
+  <Locality>Herault - Palavas</Locality>
+  <Content>Leaf</Content>
+  <GPSLocality>
+    <Longitude>3.931269444</Longitude>
+    <Latitude>43.52871944</Latitude>
+    <Altitude>0.0</Altitude>
+  </GPSLocality>
+</Image>
+

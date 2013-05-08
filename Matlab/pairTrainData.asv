@@ -1,0 +1,11 @@
+function [ TD ] = pairTrainData( class1, class2 )
+% gives trainig data set for two classes.
+    class1_mat = classTrainData(class1);
+    class2_mat = classTrainData(class2);
+    
+    TD.numLeafClass1 = size(class1_mat, 1);
+    TD
+
+    
+end
+

@@ -1,0 +1,38 @@
+clear all
+close all
+clc
+
+directory = '../tobira/';
+dirList = dir([directory, '*.jpg']);
+NFiles = length(dirList);
+
+cMatrix = cell(6, NFiles + 1);
+cMatrix{1, 1} = 'File';
+cMatrix{1, 2} = 'Contrast';
+cMatrix{1, 3} = 'Correlation';
+cMatrix{1, 4} = 'Energy';
+cMatrix{1, 5} = 'Homogeneity';
+cMatrix{1, 6} = 'Entropy';
+
+for i = 1%:NFiles
+    
+    fName = dirList(i).name(1:end-4);
+    
+    I = imread([directory, dirList(i).name]);
+    I = rgb2gray(I);
+    Tex = get_texture(I);
+    imshow(Tex);
+
+    glcm = graycomatrix(I);
+    stats = graycoprops(glcm, 'all');
+    stats.Entropy = entropy(Tex);
+    
+    cMatrix{1, i + 1} = fName;
+    cMatrix{2, i + 1} = stats.Contrast;
+    cMatrix{3, i + 1} = stats.Correlation;
+    cMatrix{4, i + 1} = stats.Energy;
+    cMatrix{5, i + 1} = stats.Homogeneity;
+    cMatrix{6, i + 1} = stats.Entropy;
+ 
+    xla
+end
